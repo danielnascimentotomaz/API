@@ -30,7 +30,7 @@ data class Credit(
 
     @ManyToOne
     @JoinColumn(name = "customer_id") //Caso eu não especifique o nome da coluna, ele vai pegar o nome da propriedade
-    val customer: Customer? = null
+    var customer: Customer? = null
 
 
 )
