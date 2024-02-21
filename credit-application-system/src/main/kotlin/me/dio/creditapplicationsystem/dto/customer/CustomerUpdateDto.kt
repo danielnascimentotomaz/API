@@ -1,4 +1,4 @@
-package me.dio.creditapplicationsystem.dto
+package me.dio.creditapplicationsystem.dto.customer
 
 import me.dio.creditapplicationsystem.entity.Customer
 import java.math.BigDecimal

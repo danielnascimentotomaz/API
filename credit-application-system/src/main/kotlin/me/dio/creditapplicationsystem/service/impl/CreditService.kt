@@ -1,10 +1,12 @@
 package me.dio.creditapplicationsystem.service.impl
 
 import me.dio.creditapplicationsystem.entity.Credit
+import me.dio.creditapplicationsystem.enumerate.Status
 import me.dio.creditapplicationsystem.repository.CreditRepository
 import me.dio.creditapplicationsystem.service.ICreditService
+import org.springframework.stereotype.Service
 import java.util.*
-
+@Service
 class CreditService(
     private val creditRepository: CreditRepository,
     private val CustormerService:CustomerService
@@ -13,6 +15,7 @@ class CreditService(
         //Iniciando objeto credit
         credit.apply {
             credit.customer = CustormerService.findById(credit.customer?.id!!)
+            credit.status = Status.APPROVED
 
         }
         return this.creditRepository.save(credit)
@@ -24,7 +27,7 @@ class CreditService(
         return this.creditRepository.findAllByCustomer(customerId)
     }
 
-    override fun findByCriditCode(idCustomer: Long, creditCode: UUID): Credit {
+    override fun findByCreditCode(idCustomer: Long, creditCode: UUID): Credit {
         val credit = creditRepository.findByCreditCode(creditCode) ?: throw RuntimeException("Credit not found")
 
         if (credit.customer?.id != idCustomer) {

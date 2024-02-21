@@ -12,8 +12,10 @@ interface CreditRepository: JpaRepository<Credit, Long> {
     fun findByCreditCode(creditCode: UUID): Credit?
 
     //Usando native query para buscar todos os créditos de um cliente específico.
-    @Query(value ="SELECT * FROM CREDIT WHERE customer_id =?1",nativeQuery = true)
-    fun findAllByCustomer(customerId: Long):List<Credit>
+    @Query(value = "SELECT * FROM TB_CREDIT  WHERE CUSTOMER_ID = ?", nativeQuery = true)
+    fun findAllByCustomer(customerId:Long) :List<Credit>
+
+
 
 
 

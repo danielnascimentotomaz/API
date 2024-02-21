@@ -8,7 +8,7 @@ interface ICreditService {
     fun save(credit: Credit):Credit
     fun findAllByCustomer(customerId:Long):List<Credit>
 
-    fun findByCriditCode(idCustomer: Long,creditCode: UUID):Credit
+    fun findByCreditCode(idCustomer: Long,creditCode: UUID):Credit
 
 
 }

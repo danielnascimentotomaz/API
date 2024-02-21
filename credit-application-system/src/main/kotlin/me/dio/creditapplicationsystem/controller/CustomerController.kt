@@ -1,8 +1,8 @@
 package me.dio.creditapplicationsystem.controller
 
-import me.dio.creditapplicationsystem.dto.CustomerDto
-import me.dio.creditapplicationsystem.dto.CustomerUpdateDto
-import me.dio.creditapplicationsystem.dto.CustomerView
+import me.dio.creditapplicationsystem.dto.customer.CustomerDto
+import me.dio.creditapplicationsystem.dto.customer.CustomerUpdateDto
+import me.dio.creditapplicationsystem.dto.customer.CustomerView
 import me.dio.creditapplicationsystem.service.impl.CustomerService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -41,7 +41,7 @@ class CustomerController(
     }
 
 
-    @PatchMapping("/{id}")
+    @PatchMapping()
     fun updateCustomer(@RequestParam(value= "customerId") id :Long,@RequestBody customerUpdateDto: CustomerUpdateDto):ResponseEntity<CustomerView>{
         //buscando
         val customer = customerService.findById(id)
